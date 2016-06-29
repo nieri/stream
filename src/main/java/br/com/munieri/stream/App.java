@@ -15,12 +15,17 @@ public class App {
             chars.put(next, size);
         }
 
+        boolean found = false;
         for (Map.Entry<Character, Integer> entry : chars.entrySet()) {
             if(entry.getValue() == 1){
+                found = true;
                 return entry.getKey();
             }
         }
 
+        if (!found) {
+            throw new IllegalArgumentException("Não foi encontrato caracter com apenas uma ocorrência.");
+        }
         return 0;
     }
 }

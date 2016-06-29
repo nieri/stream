@@ -3,7 +3,6 @@ package br.com.munieri.stream;
 import org.testng.annotations.Test;
 
 import java.util.Date;
-import java.util.Random;
 
 import static org.testng.Assert.*;
 
@@ -74,6 +73,15 @@ public class AppTest {
 
         char result = firstUniqueChar(stream);
         assertEquals(result, 'Q');
+
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void should_throw_exception(){
+        String input = "AABB";
+        Stream stream = new StreamImpl(input);
+
+        char result = firstUniqueChar(stream);
 
     }
 }
